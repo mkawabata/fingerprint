@@ -55,7 +55,15 @@ class MainActivity : AppCompatActivity() {
             }
             Log.d(TAG, "デバイス認証利用できない状態")
         }
-
+        button2.setOnClickListener {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                if (isSupportScreenLock()) {
+                    showAuthenticationScreen()
+                    return@setOnClickListener
+                }
+            }
+            Log.d(TAG, "デバイス認証利用できない状態")
+        }
 
     }
 
